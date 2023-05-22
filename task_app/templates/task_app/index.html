@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block css_add%} <link rel="stylesheet" href="{%static 'task_app/css/index.css'%}"> {% endblock %}
+{%block title%}Главная{%endblock%}
+
+{% block content %}
+<center>
+    <nav class="navbar">
+
+        {% if request.user.is_authenticated%}
+        <a class="a_css" href=""> {{request.user}}</a>
+        <a class="a_css" href="{%url 'crate_task'%}">Создать задачу</a>
+        <a class="a_css" href="{% url 'logout' %}">Выйти</a>
+        {%else%}
+        <a class="a_css" href="{% url 'login' %}">Войти</a>
+        {%endif%}
+</nav>
+</center>
+
+
+<hr class="hr-line">
+<center><h1>Список задач</h1></center>
+
+
+{% for i in all_task %}
+
+
+
+<div class="task-card">
+
+  <h3 class="task-name">{{i.name}}</h3>
+  <p class="task-description">{{i.description}}</p>
+  <p class="task-status"> {%if i.condition %}
+      Выполнена
+      {%elif i.condition != True%}
+      Не выполнена
+      {%endif%} </p>
+
+    <p class="menu_task"><a  href="{%url 'delete_task' i.id%}">Выполнить</a></p>
+    <p class="menu_task"><a  href="{% url 'edit_task' i.id%}"> Редактировать </a></p>
+
+</div>
+
+{%endfor%}
+
+
+{% endblock %}
+

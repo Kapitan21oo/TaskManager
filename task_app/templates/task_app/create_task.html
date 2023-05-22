@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{%block title%} Создай задачу!! {%endblock%}
+{% block css_add%} <link rel="stylesheet" href="{%static 'task_app/css/create_task.css'%}"> {% endblock %}
+{% block content %}
+<center> <a class="a_css" href="{%url 'index'%}">Задачи</a></center>
+
+<br>
+
+
+<form method="post" action="{% url 'crate_task' %}">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit" value="Submit">Добавить</button>
+</form>
+{% endblock %}
+
+
+

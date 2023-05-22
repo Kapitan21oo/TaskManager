@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{%block title%} Регистрация {%endblock%}
+
+
+{% block css_add%} {% endblock %}
+
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{forms.as_p}}
+  <button type="submit" value="Submit">Зарегистрироваться</button>
+</form>
+
+{% endblock %}
+
+
+
+

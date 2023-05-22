@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{%block title%}{%endblock%}
+
+
+{% block css_add%} {% endblock %}
+
+
+{% block content %}
+ <a href="{% url 'registers' %}"> <p>Регистрация</p></a>
+<a href="{% url 'login' %}"> <p>Вход</p></a>
+
+{% endblock %}

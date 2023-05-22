@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block css_add%}
+<link rel="stylesheet" href="{%static 'task_app/css/delete_task.css'%}">
+{% endblock %}
+
+
+{%block title%} {%endblock%}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <h2>Задача выполнена?</h2>
+    <p>При нажатии на "Выполнил", задача удалиться без возможности восстановления</p>
+    <button type="submit">Выполнил</button>
+</form>
+{% endblock %}

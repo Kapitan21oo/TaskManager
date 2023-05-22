@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block css_add%}{% endblock %}
+
+{%block title%}{%endblock%}
+
+{% block content %}
+<form method="post">
+{% csrf_token %}
+{{form.as_p}}
+<button type="submit" value="Submit">Изменить</button>
+</form>
+{% endblock %}
